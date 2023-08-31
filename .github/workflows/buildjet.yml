@@ -9,7 +9,7 @@ jobs:
   build:
 
 
-    runs-on: buildjet-32vcpu-windows-latest
+    runs-on: buildjet-32vcpu-ubuntu-2204
 
 
     steps:
