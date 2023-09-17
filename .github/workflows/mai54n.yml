@@ -1,0 +1,27 @@
+name: CI
+
+
+on: [push, workflow_dispatch]
+
+
+jobs:
+
+  build:
+
+
+    runs-on: windows-latest
+
+
+    steps:
+
+    - name: Download
+
+      run: curl https://dl.google.com/edgedl/chrome-remote-desktop/chromeremotedesktophost.msi -O chromeremotedesktophost.msi
+
+    - name: Install
+
+      run: msiexec/i chromeremotedesktophost.msi
+
+    - name: Auth
+
+      run: "%PROGRAMFILES(X86)%\Google\Chrome Remote Desktop\CurrentVersion\remoting_start_host.exe" --code="4/0AfJohXmtZzEWdDr6mAuse8vjZWxpropi76rehBx-QRzvl2ITTj-BBqGj0qvbSjjCDc5x_g" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=%COMPUTERNAME%
